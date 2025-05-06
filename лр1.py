@@ -1,30 +1,26 @@
-temperature = int(input("Какая сейчас температура? "))
-is_rainy = input("Идёт дождь? (да/нет): ")
-is_raining_heavily = "нет"
-if is_rainy == "да":
-    is_raining_heavily = input("Дождь сильный? (да/нет): ")
-if temperature <= 0:
-    print("Пуховик")
-else:
-    if temperature <= 20:
-        if is_rainy == "да":
-            if is_raining_heavily == "да":
-                print("Пальто, резиновые сапоги и зонт")
-            else:
-                print("Пальто и дождевик")
+def clothing():
+    t_20_30 = input("Температура выше 20 и меньше 30? (да/нет): ")
+
+    if t_20_30 == "да":
+        osadki = input("Есть ли осадки? (да/нет): ")
+        if osadki == "да":
+            return "Футболку, шорты и дождевик"
         else:
-            print("Пальто")
+            return "Футболку и шорты"
     else:
-        if temperature < 30:
-            if is_rainy == "да":
-                print("Футболку, шорты и дождевик")
-            else:
-                print("Футболку и шорты")
+        t_0 = input("Температура выше 0 градусов? (да/нет): ")
+        if t_0 == "нет":
+            return "Пуховик"
         else:
-            if is_rainy == "да":
-                if is_raining_heavily == "да":
-                    print("Пальто, резиновые сапоги и зонт")
-                else:
-                    print("Футболку, шорты и дождевик")
+            osadki = input("Есть ли осадки? (да/нет): ")
+            if osadki == "нет":
+                return "Пальто"
             else:
-                print("Футболку и шорты")
+                S_osadki = input("Осадки сильные? (да/нет): ")
+                if S_osadki == "да":
+                    return "Пальто, резиновые сапоги и зонт"
+                else:
+                    return "Пальто и дождевик"
+print("Что надеть?")
+recom = clothing()
+print(recom)
